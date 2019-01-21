@@ -25,6 +25,20 @@ create an Sql dataBase named "cdarchive"
 ```
 The application will be accessible at http://localhost:4200.
 ```
+## Screenshots of Demo
+**Home Page (CDs list)**
+![cdlist](https://user-images.githubusercontent.com/40913019/51481681-b88b1a00-1d94-11e9-8d56-4d6db5427b7b.png)
+**ADD CD**
+![addcd](https://user-images.githubusercontent.com/40913019/51481676-b5902980-1d94-11e9-8e1f-12962976396d.png)
+**UPDATE CD**
+![updatecd](https://user-images.githubusercontent.com/40913019/51481707-c93b9000-1d94-11e9-9637-9bbfffafd7a1.png)
+**Filter CDs by name**
+![namefilter](https://user-images.githubusercontent.com/40913019/51481699-c5a80900-1d94-11e9-89e0-3985cf8a22b9.png)
+**Filter CDs by gender**
+![gender filter](https://user-images.githubusercontent.com/40913019/51481696-c2148200-1d94-11e9-999c-b2906d6b1e4b.png)
+**Filter CDs by relaese_date**
+![date filter](https://user-images.githubusercontent.com/40913019/51481689-bfb22800-1d94-11e9-944e-a14eb0f0f1bf.png)
+
 
 ## Authors
 * **Fathi Benchaabene** ``mail:fathibch94@gmail.com``
