@@ -18,6 +18,8 @@ I used the IntelliJ IDE for running this project.
 once unzipped the folder import the ``pom.xml`` file this will automatically install all the dependencies for the project.
 ```
 create an Sql dataBase named "cdarchive"
+ log in to MySQL to the database cdarchive and import the file cdTable.sql ,this will create a table named "cd" that
+ contains some data examples.
 ```
 **log to ``frontend`` folder and run :**
 * ``npm install`` to install Node packages
