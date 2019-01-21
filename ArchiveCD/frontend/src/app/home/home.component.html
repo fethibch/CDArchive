@@ -1,0 +1,116 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-heading text-center"><h1>CD List</h1></div></div>
+</div>
+
+
+
+
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th>
+        <input [(ngModel)]="filtername" placeholder="filter by name" class="advancedSearchTextbox">
+
+      </th>
+      <th><input [(ngModel)]="filtergender" placeholder="filter by gender" class="advancedSearchTextbox"></th>
+      <th><p>filter by release date</p><input type="date" [(ngModel)]="filterdate" placeholder="filter by date" class="advancedSearchTextbox"></th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+      <th>name</th>
+      <th>gender</th>
+      <th>released_at</th>
+
+    </tr>
+
+    <tr *ngFor="let c of cdlist | nameFilter: {name: filtername} | genderFilter: {gender: filtergender} | dateFilter: {released: filterdate}; let i=index;">
+      <td> {{ c.name}} </td>
+      <td> {{c.gender}}</td>
+      <td> {{c.released}}</td>
+      <td> <button type="button" class="btn btn-danger" (click)="deleteCd(c)">delete</button> </td>
+
+      <td> <button type="button" class="btn " data-toggle="modal" data-target="#UpdateModal" (click)="getItem(c)"> update</button> </td>
+
+    </tr>
+
+    <input type="button" class="btn btn-success" value="Add CD" data-toggle="modal" data-target="#AddModal" style="position: absolute; right: 8%;">
+    </tbody>
+  </table>
+</div>
+<!--//pop up de update-->
+<div class="modal fade" id="UpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Update Training</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+
+            <input type="text" class="form-control" name="name" [(ngModel)]="addedCd.name"  placeholder="name" required/>
+            <input type="text" class="form-control" name="gender" [(ngModel)]="addedCd.gender"  placeholder="gender" required/>
+            <input type="date" class="form-control" name="released_at" [(ngModel)]="addedCd.released"  placeholder="released_at" required/>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="updateCd()" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--//pop up de ADDMODAL-->
+<div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabeladd" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabeladd">Add Training</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+
+            <input type="text" class="form-control" name="name" [(ngModel)]="addedCd.name"  placeholder="name" required/>
+            <input type="text" class="form-control" name="gender" [(ngModel)]="addedCd.gender"  placeholder="gender" required/>
+            <input type="date" class="form-control" name="released_at" [(ngModel)]="addedCd.released"  placeholder="released_at" required/>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="addCd()" data-dismiss="modal">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
